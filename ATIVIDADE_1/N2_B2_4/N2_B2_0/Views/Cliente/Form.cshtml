@@ -1,0 +1,74 @@
+﻿@model ClienteViewModel
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+}
+
+<section class="main-content">
+
+    <div class="title-form">Cadastro de Cliente</div>
+
+    <div class="card">
+
+
+        <form asp-action="Save" method="post">
+
+            <input type="hidden" name="Operacao" value="@ViewBag.Operacao" />
+
+            <label for="ID" class="control-label">ID</label>
+
+            @if (ViewBag.Operacao == "I")
+            {
+                <input asp-for="ID" class="form-control" />
+            }
+            else
+            {
+                <input asp-for="ID" class="form-control" readonly />
+            }
+
+            <span asp-validation-for="ID" class="text-danger"></span>
+
+            <br />
+            <label for="Nome" class="control-label">Nome</label>
+            <input type="text" asp-for="Nome" class="form-control" />
+            <span asp-validation-for="Nome" class="text-danger"></span>
+            <br />
+
+            <br />
+            <label for="CPF" class="control-label">CPF</label>
+            <input asp-for="CPF" placeholder="Ex: 561.775.530-79" class="form-control" />
+            <span asp-validation-for="CPF" class="text-danger"></span>
+
+            <br />
+            <label for="Email" class="control-label">E-mail</label>
+            <input type="text" asp-for="Email" class="form-control" />
+            <span asp-validation-for="Email" class="text-danger"></span>
+            <br />
+
+            <br />
+            <label for="Telefone" class="control-label">Telefone</label>
+            <input type="text" asp-for="Telefone" class="form-control"  />
+            <span asp-validation-for="Telefone" class="text-danger"></span>
+            <br />
+
+            <br />
+            <label for="DataCadastro" class="control-label">Data do Cadastro</label>
+            <input type="date" asp-for="DataCadastro" class="form-control" />
+            <span asp-validation-for="DataCadastro" class="text-danger"></span>
+            <br />
+
+            <br />
+            <label for="ID_Endereco" class="control-label">Endereço</label>
+            <select asp-for="ID_Endereco" asp-items="ViewBag.Enderecos" class="form-control"></select>
+            <span asp-validation-for="ID_Endereco" class="text-danger"></span>
+            <br />
+
+            <input type="submit" value="Salvar dados" class="btn btn-info" />
+            &nbsp;&nbsp;&nbsp;
+            <a href="/home/index" class="btn btn-light">Voltar</a>
+
+
+            <br />
+        </form>
+        </div>
+    </section>

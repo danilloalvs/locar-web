@@ -1,0 +1,64 @@
+﻿@model LocacaoViewModel
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section class="main-content">
+
+    <div class="title-form">Cadastro de Locação</div>
+
+    <div class="card">
+        <div class="title-form">
+            Cadastro de Locação
+        </div>
+        <form asp-action="Save" method="post">
+
+            <input type="hidden" name="Operacao" value="@ViewBag.Operacao" />
+
+            <label for="ID" class="control-label">ID</label>
+
+            @if (ViewBag.Operacao == "I")
+            {
+                <input asp-for="ID" class="form-control" />
+            }
+            else
+            {
+                <input asp-for="ID" class="form-control" readonly />
+            }
+
+            <span asp-validation-for="ID" class="text-danger"></span>
+
+
+            <br />
+            <label for="DataLocacao" class="control-label">Data da Locação</label>
+            <input type="date" asp-for="DataLocacao" class="form-control" />
+            <span asp-validation-for="DataLocacao" class="text-danger"></span>
+            <br />
+
+            <br />
+            <label for="StatusLocacao" class="control-label">Status</label>
+            <input type="text" asp-for="StatusLocacao" class="form-control" />
+            <span asp-validation-for="StatusLocacao" class="text-danger"></span>
+            <br />
+
+            <br />
+            <label for="Valor" class="control-label">Valor</label>
+            <input type="number" asp-for="Valor" class="form-control" />
+            <span asp-validation-for="Valor" class="text-danger"></span>
+            <br />
+
+            <br />
+            <label for="ID_Cliente" class="control-label">Cliente</label>
+            <select asp-for="ID_Cliente" asp-items="ViewBag.Clientes" class="form-control"></select>
+            <span asp-validation-for="ID_Cliente" class="text-danger"></span>
+            <br />
+
+            <input type="submit" value="Salvar dados" class="btn btn-info" />
+            &nbsp;&nbsp;&nbsp;
+            <a href="/home/index" class="btn btn-light">Voltar</a>
+
+
+            <br />
+        </form>
+        </div>
+    </section>

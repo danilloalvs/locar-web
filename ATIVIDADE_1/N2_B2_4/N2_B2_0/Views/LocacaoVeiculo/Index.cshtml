@@ -1,0 +1,31 @@
+﻿@model List<LocacaoVeiculoViewModel>
+@{
+    ViewData["Title"] = "Consulta de Veículos Alocados";
+    Layout = "_Layout";
+}
+
+<section class="main-content">
+
+    <a href="/LocacaoVeiculo/Create" class="insert">Cadastrar Nova Alocação de Veículo</a>
+
+    <div class="card">
+        <ul class="user-profiles-list-basic categorias">
+            @foreach (LocacaoVeiculoViewModel locacaoVeiculo in Model)
+            {
+                <li>
+                    <p>
+                        <a>Relação de locação e veículo</a>
+                        <span>ID da Locação: @locacaoVeiculo.ID</span>
+                        <span>ID do Veículo: @locacaoVeiculo.ID_Veiculo</span>
+
+                    </p>
+
+                    <div class="options">                        
+                        <a class="alter" href="/LocacaoVeiculo/Edit?id=@locacaoVeiculo.ID"><i class="fa fa-pencil-alt"></i></a>
+                        <a class="delete" href="/LocacaoVeiculo/Delete?id=@locacaoVeiculo.ID"><i class="fa fa-times-circle"></i></a>
+                    </div>
+                </li>
+            }
+        </ul>
+    </div>
+</section>

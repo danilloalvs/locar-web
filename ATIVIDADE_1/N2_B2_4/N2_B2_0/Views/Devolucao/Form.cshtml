@@ -1,0 +1,67 @@
+﻿@model DevolucaoViewModel
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section class="main-content">
+
+    <div class="title-form">Cadastro de Devolução</div>
+
+    <div class="card">
+
+        <form asp-action="Save" method="post">
+
+            <input type="hidden" name="Operacao" value="@ViewBag.Operacao" />
+
+            <label for="ID" class="control-label">ID</label>
+
+            @if (ViewBag.Operacao == "I")
+            {
+                <input asp-for="ID" class="form-control" />
+            }
+            else
+            {
+                <input asp-for="ID" class="form-control" readonly />
+            }
+
+            <span asp-validation-for="ID" class="text-danger"></span>
+
+            <br />
+            <label for="MetodoPagamento" class="control-label">Metodo de Pagamento</label>
+            <input type="text" asp-for="MetodoPagamento" class="form-control" />
+            <span asp-validation-for="MetodoPagamento" class="text-danger"></span>
+            <br />
+
+            <br />
+            <label for="DataDevolucao" class="control-label">Data de Devolução</label>
+            <input type="date" asp-for="DataDevolucao" class="form-control" />
+            <span asp-validation-for="DataDevolucao" class="text-danger"></span>
+            <br />
+
+            <br />
+            <label for="ValorDevolucao" class="control-label">Valor da Devolução</label>
+            <input type="number" asp-for="ValorDevolucao" class="form-control" />
+            <span asp-validation-for="ValorDevolucao" class="text-danger"></span>
+            <br />
+
+            <br />
+            <label for="Observacoes" class="control-label">Observações</label>
+            <input type="text" asp-for="Observacoes" class="form-control" />
+            <span asp-validation-for="Observacoes" class="text-danger"></span>
+            <br />
+
+            <br />
+            <label for="ID_Locacao" class="control-label">ID da Locação</label>
+            <select asp-for="ID_Locacao" asp-items="ViewBag.Locacoes" class="form-control"></select>
+            <span asp-validation-for="ID_Locacao" class="text-danger"></span>
+            <br />
+
+            <input type="submit" value="Salvar dados" class="btn btn-info" />
+            &nbsp;&nbsp;&nbsp;
+            <a href="/home/index" class="btn btn-light">Voltar</a>
+
+
+            <br />
+        </form>
+        </div>
+</section>

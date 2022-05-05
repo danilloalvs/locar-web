@@ -1,0 +1,50 @@
+﻿@model LocacaoVeiculoViewModel
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section class="main-content">
+
+    <div class="title-form">Cadastro de Alocação de veículos</div>
+
+    <div class="card">
+
+        <form asp-action="Save" method="post">
+
+            <input type="hidden" name="Operacao" value="@ViewBag.Operacao" />
+
+            <!--<label for="ID" class="control-label">ID</label>---->
+            @{ /*
+                    @if (ViewBag.Operacao == "I")
+                    {
+                        <input asp-for="ID" class="form-control" />
+                    }
+                    else
+                    {
+                        <input asp-for="ID" class="form-control" readonly />
+                    }
+                   */
+            }
+            <!--<span asp-validation-for="ID" class="text-danger"></span>---->
+
+            <br />
+            <label for="ID_Locacao" class="control-label">ID da Locação</label>
+            <select asp-for="ID" asp-items="ViewBag.Locacoes" class="form-control"></select>
+            <span asp-validation-for="ID" class="text-danger"></span>
+            <br />
+
+            <br />
+            <label for="ID_Veiculo" class="control-label">Placa do Veículo</label>
+            <select asp-for="ID_Veiculo" asp-items="ViewBag.Veiculos" class="form-control"></select>
+            <span asp-validation-for="ID_Veiculo" class="text-danger"></span>
+            <br />
+
+            <input type="submit" value="Salvar dados" class="btn btn-info" />
+            &nbsp;&nbsp;&nbsp;
+            <a href="/home/index" class="btn btn-light">Voltar</a>
+
+
+            <br />
+        </form>
+        </div>
+    </section>

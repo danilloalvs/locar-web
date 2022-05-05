@@ -1,0 +1,394 @@
+﻿html, body {
+    margin: 0 auto;
+    padding: 0;
+    height: 100%;
+}
+
+ul, li {
+    list-style: none;
+}
+
+.wrapper {
+    min-height: 100%;
+    position: relative;
+}
+
+
+a {
+    color: white;
+    text-decoration: none;
+}
+
+/* HEADER */
+
+header {
+    height: 8rem;
+    background: rgb(0, 0, 20);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    vertical-align: middle;
+    padding-left: 110px;
+    padding-right: 110px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+    header #logo {
+        font-family: 'Orbitron', sans-serif;
+        font-size: 2rem;
+        font-weight: bold;
+        padding: 20px;
+        vertical-align: center;
+        margin-bottom: auto;
+    }
+
+    header nav ul {
+        display: flex;
+        flex-wrap: wrap;
+        flex: 1 1 200px;
+        margin: 0 auto;
+    }
+
+        header nav ul li #menu-cadastro {
+            font-family: 'Exo', sans-serif;
+            font-size: 1.8rem;
+            font-weight: bold;
+            padding: 15px;
+            margin-right: 150px;
+        }
+
+        header nav ul li #menu-consulta {
+            font-family: 'Exo', sans-serif;
+            font-size: 1.8rem;
+            font-weight: bold;
+            padding: 15px;
+            margin-right: 150px;
+        }
+
+        header nav ul li ul {
+            background: rgb(0, 0, 20);
+            visibility: visible;
+            position: relative;
+            margin-top: 1rem;
+            left: 0;
+            display: none;
+        }
+
+            header nav ul li:hover > ul,
+            header nav ul li:focus-within > ul,
+            header nav ul li ul:hover,
+            header nav ul li ul:focus {
+                visibility: visible;
+                opacity: 1;
+                display: block;
+            }
+
+
+            header nav ul li ul li {
+                font-family: 'Exo', sans-serif;
+                font-weight: bold;
+                font-size: 1rem;
+                padding: 10px;
+                width: 70%;
+            }
+
+                header nav ul li ul li a {
+                    padding-bottom: 10px;
+                }
+
+
+.menu #sobre {
+    padding: 15px;
+}
+
+/* BODY CONTENT */
+
+.main-content {
+    /* /* By setting flex-grow to 1, the main content will take up 
+	all of the remaining space on the page (the other elements have flex-grow: 0 and won't contest the free space). */
+    /* 1 flex-grow, 0 flex-shrink, auto flex-basis */
+    flex: 1 0 auto;
+    background-color: gainsboro;
+    padding-bottom: 15rem;
+}
+
+.card1 {
+    align-items: center;
+}
+
+.card {
+    position: inherit;
+    max-width: 80rem;
+    margin: auto;
+    height: 100%;
+    padding-top: 5rem;
+    padding-bottom: 3rem;
+    text-align: center;
+    background-color: whitesmoke;
+}
+
+.btn-info {
+    margin-right: 2rem;
+}
+
+label {
+    margin-right: 80rem;
+}
+
+label, input, span, select {
+    margin-left: 5rem;
+    max-width: 30rem;
+}
+
+
+
+.btn {
+    margin-top: 15px;
+}
+
+
+.main-content .insert {
+    text-decoration: none;
+    font-family: 'Roboto Mono', monospace;
+    font-style: bold;
+    display: inline-block;
+    color: black;
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 3px;
+    padding: 10px 30px;
+    background-color: #ffffff;
+    margin-left: 8rem;
+    margin-top: 2rem;
+    margin-bottom: 1.5rem;
+}
+
+.main-content .space {
+    display: inline-block;
+    padding: 10px 30px;
+    margin-left: 130px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.title-form {
+    text-decoration: none;
+    font-family: 'Exo', sans-serif;
+    font-style: bold;
+    display: inline-block;
+    color: black;
+    font-size: 2rem;
+    font-weight: bold;
+    border-radius: 3px;
+    padding: 10px 30px;
+    margin-left: 170px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.row {
+    margin-left: 7rem;
+}
+
+.sobre-profiles {
+    text-align: center;
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
+    .sobre-profiles li {
+        display: inline-block;
+        box-sizing: border-box;
+        position: inherit;
+        ;
+        font: normal 16px sans-serif;
+        padding: 15px 30px 15px 30px;
+        border-radius: 3rem;
+        margin-right: 5rem;
+        background-color: #f4f8fa;
+        border: 1px solid #dbe3e7;
+        box-shadow: 0 2px 3px #dbe3e7;
+        margin-bottom: 50px;
+    }
+
+        .sobre-profiles li:nth-child(1) {
+            margin-left: 5rem;
+        }
+
+    .sobre-profiles img {
+        width: 10rem;
+        border-radius: 50%;
+        border: 0;
+    }
+
+    .sobre-profiles p {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        text-align: center;
+        margin-top: 20px;
+        max-width: 340px;
+    }
+
+        .sobre-profiles p a {
+            color: #5d6569;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .sobre-profiles p span {
+            display: block;
+            font-size: 13px;
+            color: #808d93;
+            padding-top: 4px;
+        }
+
+.user-profiles-list-basic {
+    align-items: center;
+    justify-content: center;
+    text-align: left;
+    padding-left: 75px;
+    padding-right: 75px;
+}
+
+    .user-profiles-list-basic li {
+        position: inherit;
+        display: inline-block;
+        box-sizing: border-box;
+        font: normal 16px sans-serif;
+        padding: 15px 30px 15px 5px;
+        margin-right: 2rem;
+        margin-left: 2rem;
+        background-color: rgb(224 224 224);
+        border: 1px solid #dbe3e7;
+        box-shadow: 0 2px 3px #dbe3e7;
+        margin-bottom: 25px;
+        border: black;
+        border-style: solid;
+        border-width: 1px;
+        max-width: 400px;
+    }
+
+    .user-profiles-list-basic .user-avatar {
+        float: left;
+        width: 100px;
+        text-align: left;
+        margin-right: 20px;
+    }
+
+        .user-profiles-list-basic .user-avatar img {
+            max-width: 100px;
+            border-radius: 50%;
+            border: 0;
+        }
+
+    .user-profiles-list-basic p {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        text-align: center;
+        margin-top: 20px;
+        max-width: 340px;
+        margin-left: 1rem;
+    }
+
+        .user-profiles-list-basic p a {
+            margin-left: 1rem;
+            color: #5d6569;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .user-profiles-list-basic p span {
+            margin-right: 5rem;
+            display: block;
+            font-size: 13px;
+            color: #808d93;
+            padding-top: 4px;
+        }
+
+
+.options {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: initial;
+    text-align: center;
+    text-decoration: none;
+    width: 480px;
+    margin-left: 5rem;
+}
+
+.user-profiles-list-basic .insert {
+    padding-right: 18px;
+    border: black;
+    border-style: solid;
+    border-width: 1px;
+    margin-left: 120px;
+}
+
+.user-profiles-list-basic .delete {
+    background-color: #de4a4a;
+    border-radius: 50%;
+    color: #fff;
+    font-size: 13px;
+    line-height: 22px;
+    width: 22px;
+    height: 22px;
+    margin-right: 20px;
+}
+
+.user-profiles-list-basic .alter {
+    background-color: forestgreen;
+    border-radius: 50%;
+    color: #fff;
+    font-size: 13px;
+    line-height: 22px;
+    width: 22px;
+    height: 22px;
+    margin-left: 50px;
+    margin-right: 10px;
+}
+
+
+/* FOOTER */
+
+.site-footer {
+    display: flex;
+    flex-direction: column;
+    background: rgb(0, 0, 20);
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    height: 160px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+footer ul {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+    footer ul li {
+        margin-top: 30px;
+        margin-left: 20px;
+    }
+
+        footer ul li a {
+            font-size: 2rem;
+        }
+
+footer p {
+    color: white;
+    font-family: 'Exo', sans-serif;
+    font-weight: 900;
+    font-size: 1rem;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}

@@ -1,0 +1,54 @@
+﻿@model CategoriaViewModel
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<section class="main-content">
+
+    <div class="title-form">Cadastro de Categoria</div>
+
+    <div class="card">
+
+
+        <form asp-action="Save" method="post">
+
+            <input type="hidden" name="Operacao" value="@ViewBag.Operacao" />
+
+            <label for="ID" class="control-label">ID</label>
+
+            @if (ViewBag.Operacao == "I")
+            {
+                <input asp-for="ID" class="form-control" />
+            }
+            else
+            {
+                <input asp-for="ID" class="form-control" readonly />
+            }
+
+            <span asp-validation-for="ID" class="text-danger"></span>
+
+            <br />
+            <label for="Descricao" class="control-label">Descrição</label>
+            <input asp-for="Descricao" class="form-control" />
+            <span asp-validation-for="Descricao" class="text-danger"></span>
+
+            <br />
+            <label for="Finalidade" class="control-label">Finalidade</label>
+            <input type="text" asp-for="Finalidade" class="form-control" />
+            <span asp-validation-for="Finalidade" class="text-danger"></span>
+            <br />
+
+            <br />
+            <label for="Tamanho" class="control-label">Tamanho</label>
+            <input type="text" asp-for="Tamanho" class="form-control" />
+            <span asp-validation-for="Tamanho" class="text-danger"></span>
+            <br />
+
+            <input type="submit" value="Salvar dados" class="btn btn-info" />
+            &nbsp;&nbsp;&nbsp;
+            <a href="/locacao/Index" class="btn btn-light">Voltar</a>
+
+
+            <br />
+        </form>
+        </div>
+    </section>

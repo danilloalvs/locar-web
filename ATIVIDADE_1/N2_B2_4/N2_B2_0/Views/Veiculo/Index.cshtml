@@ -1,0 +1,80 @@
+﻿@model List<VeiculoViewModel> 
+@{
+    ViewData["Title"] = "Consulta de Veículos";
+    Layout = "_Layout";
+}
+
+@*<section class="main-content">
+
+    <a href="/Veiculo/Create" class="insert">Cadastrar Novo Veículo</a>
+
+    <div class="card">
+        <ul class="user-profiles-list-basic">
+            @foreach (VeiculoViewModel veiculo in Model)
+            {
+                <li>
+
+                    <a href="#" class="user-avatar">
+                        <img id="imgPreview" src="data:image/jpeg;base64,@veiculo.ImagemEmBase64" class="img-responsive" width="100">                        
+                    </a>
+
+                    <p>                       
+                        <a href="">@veiculo.Placa</a>
+                        <span>@veiculo.ID</span>
+                        <span>@veiculo.UltimaRevisao</span>
+                        <span>@veiculo.Quilometragem</span>
+                        <span>@veiculo.Cor</span>
+                    </p>
+
+                    <div class="options">                        
+                        <a class="alter" href="/Veiculo/Edit?id=@veiculo.ID"><i class="fa fa-pencil-alt"></i></a>
+                        <a class="delete" href="/Veiculo/Delete?id=@veiculo.ID"><i class="fa fa-times-circle"></i></a>
+                    </div>
+                </li>
+            }
+            
+        </ul>
+    </div>
+</section>*@
+
+<section class="main-content">
+
+    <a href="/Veiculo/Create" class="insert">Cadastrar novo veículo</a>
+
+    <div class="card">
+        <ul class="user-profiles-list-basic">
+            <table class="table table-responsive table-dark">
+                <tr>
+                    <th>Ações</th>
+                    <th>ID</th>
+                    <th>Última revisão</th>
+                    <th>Quilometragem</th>
+                    <th>Cor</th>
+                    <th>Placa</th>
+                    <th>Categoria</th>
+                    <th>Imagem</th>
+                </tr>
+
+                @foreach (VeiculoViewModel a in Model)
+                {
+                    <tr>
+                        <td>
+                            <a href="/Veiculo/Edit?id=@a.ID" class="btn btn-info">Editar</a>
+                            <a href="/Veiculo/Delete?id=@a.ID" class="btn btn-danger">Apagar</a>
+                        </td>
+
+                        <td>@a.ID.ToString()</td>
+                        <td>@a.UltimaRevisao.ToString()</td>
+                        <td>@a.Quilometragem.ToString()</td>
+                        <td>@a.Cor.ToString()</td>
+                        <td>@a.Placa.ToString()</td>
+                        <td>@a.ID_Categoria.ToString()</td>
+                        <td><img id="imgPreview" src="data:image/jpeg;base64,@a.ImagemEmBase64" class="img-responsive" width="100">                        </td>
+                    </tr>
+                }
+
+            </table>
+        </ul>
+        <a href="/locacao/index" class="btn btn-light">Voltar</a>
+    </div>
+</section>

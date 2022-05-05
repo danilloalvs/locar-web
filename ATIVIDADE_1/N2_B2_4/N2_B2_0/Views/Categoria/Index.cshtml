@@ -1,0 +1,43 @@
+﻿@model List<CategoriaViewModel>
+@{
+    ViewData["Title"] = "Consulta de Categoria";
+    Layout = "_Layout";
+}
+
+
+<section class="main-content">
+
+    <a href="/Categoria/Create" class="insert">Cadastrar nova categoria</a>
+
+    <div class="card">
+        <ul class="user-profiles-list-basic">
+            <table class="table table-responsive table-dark">
+                <tr>
+                    <th>Ações</th>
+                    <th>Descrição</th>
+                    <th>ID</th>
+                    <th>Finalidade</th>
+                    <th>Tamanho</th>
+                </tr>
+
+                @foreach (CategoriaViewModel a in Model)
+                {
+                    <tr>
+                        <td>
+                            <a href="Categoria/Edit?id=@a.ID" class="btn btn-info">Editar</a>
+                            <a href="Categoria/Delete?id=@a.ID" class="btn btn-danger">Apagar</a>
+                        </td>
+
+                        <td>@a.Descricao</td>
+                        <td>@a.ID.ToString()</td>
+                        <td>@a.Finalidade.ToString()</td>
+                        <td>@a.Tamanho.ToString()</td>
+                    </tr>
+                }
+
+            </table>
+        </ul>
+
+        <a href="/locacao/index" class="btn btn-light" >Voltar</a>
+    </div>
+</section>

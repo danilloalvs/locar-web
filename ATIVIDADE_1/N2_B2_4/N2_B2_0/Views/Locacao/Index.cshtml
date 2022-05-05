@@ -1,0 +1,44 @@
+﻿@model List<LocacaoViewModel>
+@{
+    ViewData["Title"] = "loCAR";
+    Layout = "_Layout";
+}
+
+<!-- CONTAINER BODY-CONTENT -->
+
+
+<section class="main-content">
+
+    <a href="/Locacao/Create" class="insert">Cadastrar nova locação</a>
+
+    <div class="card card1">
+        <ul class="user-profiles-list-basic">
+            @foreach (LocacaoViewModel locacao in Model)
+            {
+                <li>
+
+                    <p>
+                        <a href="">Status da locação: @locacao.StatusLocacao</a>
+                        <span>Código da locação: @locacao.ID</span>
+                        <span>Data da locação:  @locacao.DataLocacao</span>
+                        <span>Valor da locação:  @locacao.Valor</span>
+                        <span>Quantidade de veículos alugados: @locacao.QtdVeiculos</span>
+                        <span>Código do cliente: @locacao.ID_Cliente</span>
+                    </p>
+
+                    <div class="options">
+                        <a class="alter" href="/Locacao/Edit?id=@locacao.ID"><i class="fa fa-pencil-alt"></i></a>
+                        <a class="delete" href="/Locacao/Delete?id=@locacao.ID"><i class="fa fa-times-circle"></i></a>
+                    </div>
+                </li>
+
+                
+            }
+
+        </ul>
+    </div>
+</section>
+
+
+
+

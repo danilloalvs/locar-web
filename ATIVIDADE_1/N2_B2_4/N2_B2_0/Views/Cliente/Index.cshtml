@@ -1,0 +1,48 @@
+﻿@model List<ClienteViewModel>
+@{
+    ViewData["Title"] = "Consulta de Cliente";
+    Layout = "_Layout";
+}
+
+
+<section class="main-content">
+
+    <a href="/Cliente/Create" class="insert">Cadastrar novo cliente</a>
+
+    <div class="card">
+        <ul class="user-profiles-list-basic">
+            <table class="table table-responsive table-dark">
+                <tr>
+                    <th>Ações</th>
+                    <th>Nome</th>
+                    <th>ID</th>
+                    <th>CPF</th>
+                    <th>Email</th>
+                    <th>Telefone</th>
+                    <th>Data de cadastro</th>
+                    <th>ID do endereço</th>
+                </tr>
+
+                @foreach (ClienteViewModel a in Model)
+                {
+                    <tr>
+                        <td>
+                            <a href="/Cliente/Edit?id=@a.ID" class="btn btn-info">Editar</a>
+                            <a href="/Cliente/Delete?id=@a.ID" class="btn btn-danger">Apagar</a>
+                        </td>
+
+                        <td>@a.Nome</td>
+                        <td>@a.ID.ToString()</td>
+                        <td>@a.CPF.ToString()</td>
+                        <td>@a.Email.ToString()</td>
+                        <td>@a.Telefone.ToString()</td>
+                        <td>@a.DataCadastro.ToString()</td>
+                        <td>@a.ID_Endereco.ToString()</td>
+                    </tr>
+                }
+
+            </table>
+        </ul>
+        <a href="/locacao/index" class="btn btn-light">Voltar</a>
+    </div>
+</section>

@@ -1,0 +1,122 @@
+﻿@model EnderecoViewModel
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section class="main-content">
+
+    <div class="title-form">Cadastro de Endereço</div>
+
+    <div class="card">
+
+        <form asp-action="Save" method="post">
+
+            <input type="hidden" name="Operacao" value="@ViewBag.Operacao" />
+
+            <label for="ID" class="control-label">ID</label>
+
+            @if (ViewBag.Operacao == "I")
+            {
+                <input asp-for="ID" class="form-control" />
+            }
+            else
+            {
+                <input asp-for="ID" class="form-control" readonly />
+            }
+
+            <span asp-validation-for="ID" class="text-danger"></span>
+
+            <br />
+            <label for="CEP" class="control-label">CEP</label>
+            <input id="cep" type="text" asp-for="CEP" class="form-control" />
+            <span asp-validation-for="CEP" class="text-danger"></span>
+
+            <br />
+            <label for="Rua" class="control-label">Rua</label>
+            <input id="logradouro" type="text" asp-for="Rua" class="form-control" readonly />
+            <span asp-validation-for="Rua" class="text-danger"></span>
+            <br />
+
+            <br />
+            <label for="Bairro" class="control-label">Bairro</label>
+            <input id="bairro" type="text" asp-for="Bairro" class="form-control" readonly />
+            <span asp-validation-for="Bairro" class="text-danger"></span>
+            <br />
+
+            <br />
+            <label for="Numero" class="control-label">Número</label>
+            <input type="number" asp-for="Numero" class="form-control" />
+            <span asp-validation-for="Numero" class="text-danger"></span>
+            <br />
+
+            <br />
+            <label for="Complemento" class="control-label">Complemento</label>
+            <input type="text" asp-for="Complemento" class="form-control" />
+            <span asp-validation-for="Complemento" class="text-danger"></span>
+            <br />
+
+            <input type="submit" value="Salvar dados" class="btn btn-info" />
+            &nbsp;&nbsp;&nbsp;
+            <a href="/home/index" class="btn btn-light">Voltar</a>
+
+
+            <br />
+        </form>
+
+        </div>
+    </section>
+
+        <script>
+            /*
+            function buscaCEP() {
+                var cep = document.getElementById("cep").value;
+                cep = cep.replace('-', '');
+                cep = cep.replace(' ', '');
+                if (cep.length > 0) {
+                    var linkAPI = '' + cep + '/json/';
+
+                    $.ajax({
+                        type: 'GET',
+                        url: linkAPI,
+                        datatype: "json",
+                        cache: false,
+                        beforeSend: function () {
+                            document.getElementById("logradouro").value = '...';
+                            document.getElementById("bairro").value = '...';
+                        },
+                        success: function (dados) {
+                            if (dados.erro != undefined)  // quando o CEP não existe...
+                            {
+                                alert('CEP não localizado...');
+                                document.getElementById("logradouro").value = '';
+                                document.getElementById("bairro").value = '';
+                            }
+                            else // quando o CEP existe
+                            {
+                                document.getElementById("logradouro").value = dados.logradouro;
+                                document.getElementById("bairro").value = dados.bairro;
+                                document.getElementById("localidade").value = dados.localidade;
+                                document.getElementById("uf").value = dados.uf;
+                            }
+                        }
+                    });
+                }
+            } */
+
+            function consultaCEP() {
+                var cep = document.getElementById("cep").Value;
+                var url = "https://viacep.com.br/ws/" + cep + "/json/";
+
+                $.ajax({
+                    url: url,
+                    type: "GET",
+                    success: function (response) {
+                        $("#logradouro").html(response.logradouro);
+                        $("#bairro").html(response.bairro);
+                        $("#complemento").html(response.complemento);
+                    }
+                })
+            }
+
+
+        </script>

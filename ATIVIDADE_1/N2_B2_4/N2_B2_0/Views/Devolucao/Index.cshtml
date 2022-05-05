@@ -1,0 +1,45 @@
+﻿@model List<DevolucaoViewModel>
+@{
+    ViewData["Title"] = "Consulta de Devoluções";
+    Layout = "_Layout";
+}
+
+<section class="main-content">
+
+    <a href="/Devolucao/Create" class="insert">Cadastrar nova devolução</a>
+
+    <div class="card">
+        <ul class="user-profiles-list-basic">
+            <table class="table table-responsive table-dark">
+                <tr>
+                    <th>Ações</th>
+                    <th>ID</th>
+                    <th>Data de devolução</th>
+                    <th>Valor da devolução</th>
+                    <th>Método de pagamento</th>
+                    <th>Observação</th>
+                    <th>Locação</th>
+                </tr>
+
+                @foreach (DevolucaoViewModel a in Model)
+                {
+                    <tr>
+                        <td>
+                            <a href="/Devolucao/Edit?id=@a.ID" class="btn btn-info">Editar</a>
+                            <a href="/Devolucao/Delete?id=@a.ID" class="btn btn-danger">Apagar</a>
+                        </td>
+
+                        <td>@a.ID.ToString()</td>
+                        <td>@a.DataDevolucao.ToString()</td>
+                        <td>@a.ValorDevolucao.ToString()</td>
+                        <td>@a.MetodoPagamento.ToString()</td>
+                        <td>@a.Observacoes.ToString()</td>
+                        <td>@a.ID_Locacao.ToString()</td>
+                    </tr>
+                }
+
+            </table>
+        </ul>
+        <a href="/locacao/index" class="btn btn-light">Voltar</a>
+    </div>
+</section>
