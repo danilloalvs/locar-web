@@ -1,6 +1,4 @@
 # Locar
-Projeto realizado para fins de estudo.
-
 Sistema de administração de locadora de veículos, desenvolvido durante o 5° semestre do curso de Engenharia da Computação, pela Faculdade de Tecnologia Termomecânica.
 
 ### Usuário default para acesso ao sistema
